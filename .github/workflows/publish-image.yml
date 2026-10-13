@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "ChatGPT Image 11 oct. 2026, 14_40_44.png"
-      - ".github/workflows/publish-image.yml"
   workflow_dispatch:
 
 permissions:
