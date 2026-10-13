@@ -1,0 +1,29 @@
+name: Publier l'image dans une Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "ChatGPT Image 11 oct. 2026, 14_40_44.png"
+      - ".github/workflows/publish-image.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Publier la Release avec le PNG
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: reference-image
+          name: Image de référence
+          body: "Image de référence pour le projet École-Bible."
+          files: "ChatGPT Image 11 oct. 2026, 14_40_44.png"
+          fail_on_unmatched_files: true
